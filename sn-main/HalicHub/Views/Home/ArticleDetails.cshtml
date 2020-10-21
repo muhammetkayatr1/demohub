@@ -1,0 +1,90 @@
+﻿@model ArticleDetailsModel
+@await Html.PartialAsync("_Header")
+<section class="blog_area p_120 single-post-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="main_blog_details">
+                    <img class="img-fluid" src="/img/@Model.Articles.Image" alt="">
+                    <a href="#"><h4>@Model.Articles.Title</h4></a>
+                    <div class="user_details">
+                        <div class="float-right">
+                            <div class="media">
+                                <div class="media-body">
+                                    @foreach (var item in Model.Authors)
+                                    {
+                        <h5>@item.NameSurname</h5>}
+                                    <p>@Model.Articles.Date</p>
+                                </div>
+                                <div class="d-flex">
+                                    <img src="img/blog2/user-img.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p>@Html.Raw(Model.Articles.Content)</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
+                    @foreach (var item in Model.Authors)
+                    {
+        <aside class="single_sidebar_widget author_widget">
+            <img class="author_img rounded-circle" src="~/img/@item.Image" alt="">
+            <h4><a asp-controller="Home" asp-action="AuthorDetails" asp-route-author="@item.Url">@item.NameSurname</a></h4>
+            <p>@item.Description</p>
+            <div class="social_icon">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-github"></i></a>
+                <a href="#"><i class="fa fa-behance"></i></a>
+            </div>
+            <div class="br"></div>
+        </aside>}
+                <aside class="single_sidebar_widget popular_post_widget">
+                    <h3 class="widget_title">İlgili Yazılar</h3>
+
+                    @foreach (var articles in (List<Article>)ViewBag.tası)
+                    {
+                        if (articles.Url != Model.Articles.Url)
+                        {
+                <div class="media post_item">
+                    <img src="/img/@articles.Image" alt="post">
+                    <div class="media-body">
+                        <a asp-controller="home" asp-action="ArticleDetails" asp-route-url="@articles.Url"><h3>@articles.Title</h3></a>
+                        <p>@articles.Date</p>
+                    </div>
+                </div>}
+                    }
+                    <div class="br"></div>
+                </aside>
+                    <aside class="single_sidebar_widget">
+                        <h4 class="widget_title">E-Bülten Aboneliği</h4>
+                        <form action="#">
+                            <div class="form-group">
+                                <form action="#">
+                                    <input class="form-control" style="width: 100%; margin-bottom: 20px; border-radius: 0px;" type="text" placeholder="Email">
+                                    <button style="background: #140C40; color: white; padding: 10px 5px 10px 5px; width: 100%;" type="button">Gönder</button>
+                                </form>
+                            </div>
+                        </form>
+                    </aside>
+                    <aside class="single_sidebar_widget post_category_widget">
+                        <h4 class="widget_title">Kategoriler</h4>
+                        <ul class="list cat-list">
+                        <li style="display: block;">
+                            <a href="#" class="d-flex justify-content-between">
+                                <p>Teknoloji</p>
+                                <p>37</p>
+                            </a>
+                        </li>} 
+                        </ul>
+                        <div class="br"></div>
+                    </aside>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+@await Html.PartialAsync("_Footer")

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "mhgzqP9Avfdy8PaGI40XW5GTIzoWvB23oldk+D0q900kFRAt874cUOCd+ITSwrz89y8UwIV5LkhmpmGSbx868A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\muhammetkaya\\Desktop\\Hub Versions\\sn-main\\Halic.Entity\\Halic.Entity.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\muhammetkaya\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
